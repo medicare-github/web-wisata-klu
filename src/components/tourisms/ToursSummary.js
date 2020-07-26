@@ -45,7 +45,6 @@ const ToursSummary = ({ tourism }) => {
             <button
               type="button"
               data-toggle="tooltip"
-              title
               className="btn btn-link btn-primary btn-lg"
               data-original-title="Edit Task"
             >
@@ -55,7 +54,6 @@ const ToursSummary = ({ tourism }) => {
           <button
             type="button"
             data-toggle="tooltip"
-            title
             className="btn btn-link btn-danger"
             data-original-title="Remove"
           >

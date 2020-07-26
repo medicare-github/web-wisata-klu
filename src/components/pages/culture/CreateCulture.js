@@ -13,7 +13,7 @@ class CreateCulture extends Component {
     village: "",
     image: null,
     description: "",
-    ticket:null,
+    ticket: null,
   };
 
   handleChange = (e) => {
@@ -50,34 +50,23 @@ class CreateCulture extends Component {
           .child(this.state.image.name)
           .getDownloadURL()
           .then((url) => {
-            // this.setState({
-            //   imageUrl : url
-            // });
-
             const data = {
-              name:this.state.name,
-              longitude:this.state.longitude,
-              latitude:this.state.latitude,
-              subDistric:this.state.subDistric,
-              village:this.state.village,
-              ticket:this.state.ticket,
-              description:this.state.description,
-              image:url,
-        
-            }
-            
+              name: this.state.name,
+              longitude: this.state.longitude,
+              latitude: this.state.latitude,
+              subDistric: this.state.subDistric,
+              village: this.state.village,
+              ticket: this.state.ticket,
+              description: this.state.description,
+              image: url,
+            };
+
             this.props.createCulture(data);
-            this.props.history.push('/');
-           
+            this.props.history.push("/");
           });
       }
     );
-
-
-    
-  
   };
-
 
   render() {
     const { auth } = this.props;
@@ -208,7 +197,7 @@ class CreateCulture extends Component {
                             onChange={this.handleChange}
                           />
                         </div>
-                        
+
                         <div className="form-group form-inline">
                           <label className="col-md-3 col-form-label">
                             Description
@@ -249,7 +238,6 @@ class CreateCulture extends Component {
                           <button className="btn btn-success mr-1">
                             Submit
                           </button>
-                          {/* <button className="btn btn-danger">Cancel</button> */}
                         </div>
                       </form>
                     </div>

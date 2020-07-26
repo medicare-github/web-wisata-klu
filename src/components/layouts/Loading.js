@@ -8,7 +8,7 @@ export class Loading extends Component {
           <div className="row">
             <div className="col-md-4"></div>
             <div className="col-md-4 col-md-6 ml-auto mr-auto text-center">
-              <div class="lds-roller">
+              <div className="lds-roller">
                 <div></div>
                 <div></div>
                 <div></div>
