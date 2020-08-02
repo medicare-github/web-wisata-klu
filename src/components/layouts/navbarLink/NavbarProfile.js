@@ -15,7 +15,7 @@ const NavbarProfile = (props) => {
       >
         <div className="avatar-sm">
           <img
-            src="../assets/img/profile.jpg"
+            src="../assets/img/account.png"
             alt="img"
             className="avatar-img rounded-circle"
           />
@@ -27,20 +27,20 @@ const NavbarProfile = (props) => {
             <div className="user-box">
               <div className="avatar-lg">
                 <img
-                  src="../assets/img/profile.jpg"
+                  src="../assets/img/account.png"
                   alt="img"
                   className="avatar-img rounded"
                 />
               </div>
               <div className="u-text">
-                <h4>Medicare</h4>
-                <p className="text-muted">care@example.com</p>
-                <a
-                  href="profile.html"
+                <h4>admin</h4>
+                <p className="text-muted">cmedi2118@gmail.com</p>
+                <span
+                  
                   className="btn btn-xs btn-secondary btn-sm"
                 >
                   View Profile
-                </a>
+                </span>
               </div>
             </div>
           </li>
@@ -58,7 +58,7 @@ const NavbarProfile = (props) => {
             </li> */}
             <div className="dropdown-divider" />
             <span className="dropdown-item">
-              <Link to="" onClick={props.signOut} >Logout</Link>
+              <Link to="/signIn" onClick={props.signOut} >Logout</Link>
             </span>
           </li>
         </div>
@@ -69,8 +69,10 @@ const NavbarProfile = (props) => {
 
 const mapDispatchToProps =(dispatch)=>{
   return{
-    signOut: ()=>dispatch(signOut())
+    signOut: ()=>dispatch(signOut()),
   }
 }
+
+
 
 export default connect(null, mapDispatchToProps) (NavbarProfile)

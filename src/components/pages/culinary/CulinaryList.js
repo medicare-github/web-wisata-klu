@@ -4,7 +4,7 @@ import CulinarySummary from "./CulinarySummary";
 
 
 
-const CulinaryList = ({ tourisms }) => {
+const CulinaryList = ({ tourisms, firestore }) => {
 
   return (
     <div className="card">
@@ -12,9 +12,9 @@ const CulinaryList = ({ tourisms }) => {
         <div className="ml-md-auto">
           <Link
             className="btn btn-white btn-border btn-round mr-2"
-            to="/createtour"
+            to="/createCulinary"
           >
-            <i className="fas fa-plus-circle" /> Masukan Budaya Alam Terbaru
+            <i className="fas fa-plus-circle" /> Masukan Wisata Kuliner Terbaru
           </Link>
         </div>
         <h4 className="card-title text-center text-white">
@@ -51,7 +51,7 @@ const CulinaryList = ({ tourisms }) => {
             <tbody>
               {tourisms &&
                 tourisms.map((tourism) => {
-                  return <CulinarySummary tourism={tourism} />;
+                  return <CulinarySummary tourism={tourism}firestore={firestore} />;
                 })}
              
             </tbody>

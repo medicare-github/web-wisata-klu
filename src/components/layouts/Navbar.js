@@ -1,7 +1,5 @@
 import React from "react";
 import NavbarNotifications from "./navbarLink/NavbarNotifications";
-// import SearchForm from "./navbarLink/SearchForm";
-// import HiddenSearchForm from "./navbarLink/HiddenSearchForm";
 import NavbarProfile from "./navbarLink/NavbarProfile";
 import {connect} from 'react-redux'
 
@@ -17,8 +15,9 @@ import {connect} from 'react-redux'
           {/* <SearchForm/> */}
           <ul className="navbar-nav topbar-nav ml-md-auto align-items-center">
             {/* <HiddenSearchForm/> */}
-            <NavbarNotifications/>
-            <NavbarProfile/>
+            {/* <NavbarNotifications/> */}
+            {auth.email==="cmedi2118@gmail.com" ? <NavbarNotifications/> : ""}
+            {auth.email==="cmedi2118@gmail.com" ? <NavbarProfile/> : ""}
           </ul>
         </div>
       </nav>

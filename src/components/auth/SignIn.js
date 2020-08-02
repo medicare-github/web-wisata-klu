@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { signIn } from "../../store/actions/authAction";
-import {Redirect} from 'react-router-dom'
+// import {Redirect} from 'react-router-dom'
 
 
 export class SignIn extends Component {
@@ -24,16 +24,15 @@ export class SignIn extends Component {
     }
   };
   render() {
-    const { authError, auth } = this.props;
-  if (auth.uid) return <Redirect to='/'/>
-
+    const { authError } = this.props;
     return (
       <div className="wrapper overlay-sidebar">
         <div className="main-header">
           <div className="logo-header" data-background-color="blue2">
             <a href="index.html" className="logo">
               <img
-                src="../assets/img/logo.svg"
+                src="../assets/img/icon1.png"
+                width={100}
                 alt="navbar brand"
                 className="navbar-brand"
               />

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import NaturalSummary from "./NaturalSummary";
 
-const NaturalList = ({ tourisms }) => {
+const NaturalList = ({ tourisms, firestore }) => {
 
   return (
     <div className="card">
@@ -49,7 +49,7 @@ const NaturalList = ({ tourisms }) => {
             <tbody>
               {tourisms &&
                 tourisms.map((tourism) => {
-                  return <NaturalSummary tourism={tourism} />;
+                  return <NaturalSummary tourism={tourism} firestore={firestore} />;
                 })}
              
             </tbody>

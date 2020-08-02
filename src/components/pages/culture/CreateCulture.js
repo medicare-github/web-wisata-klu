@@ -70,7 +70,8 @@ class CreateCulture extends Component {
 
   render() {
     const { auth } = this.props;
-    if (!auth.uid) return <Redirect to="/" />;
+    if (auth.email !=="cmedi2118@gmail.com") return <Redirect to='/cantIn' />
+
 
     return (
       <div className="content">
@@ -87,7 +88,7 @@ class CreateCulture extends Component {
                 <i className="flaticon-right-arrow" />
               </li>
               <li className="nav-item">
-                <a href="url">Form masukan data wisata</a>
+                <a href="url">Form masukan data wisata Budaya</a>
               </li>
             </ul>
           </div>

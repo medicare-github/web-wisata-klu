@@ -1,9 +1,29 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import moment from "moment";
+import Swal from "sweetalert2";
 
 
-const CulinarySummary = ({ tourism }) => {
+function del(tourism, firestore) {
+  console.log(tourism);
+  console.log(firestore);
+  Swal.fire({
+    title: "Apakah Anda yakin?",
+    text: "Anda ingin menghapus "+" "+tourism.name,
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.value) {
+      firestore.collection('Tourisms').doc(tourism.id).delete();      
+      Swal.fire("Deleted!", "Your file has been deleted.", "success");
+    }
+  });
+}
+
+const CulinarySummary = ({ tourism, firestore }) => {
   return (
     <tr key={tourism.id} >
       <td><Link to={"/detail/"+tourism.id}>{tourism.name}</Link></td>
@@ -52,8 +72,12 @@ const CulinarySummary = ({ tourism }) => {
           )}
           <button
             type="button"
+            onClick={() => {
+             
+             
+              del(tourism,firestore);
+            }}
             data-toggle="tooltip"
-            title
             className="btn btn-link btn-danger"
             data-original-title="Remove"
           >

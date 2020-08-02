@@ -6,7 +6,8 @@ export default class Header extends Component {
       <div className="logo-header" data-background-color="blue">
         <a href="index.html" className="logo">
           <img
-            src="../assets/img/logo.svg"
+            src="../assets/img/icon1.png"
+            width={100}
             alt="navbar brand"
             className="navbar-brand"
           />

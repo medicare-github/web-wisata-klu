@@ -3,19 +3,42 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
+import Swal from "sweetalert2";
 import moment from "moment";
 
-async function edit(id, ok, firestore){
-  let date=new Date();
-  if (ok){await firestore.collection("Tourisms").doc(id).update({"status": "accepted", "acceptedAt":date,"disAcceptedAt":null});}
-  else{await firestore.collection("Tourisms").doc(id).update({"status": "not accepted", "disAcceptedAt":date,"acceptedAt" :date});}
+async function edit(id, ok, firestore) {
+  let date = new Date();
+  if (ok) {
+    await firestore
+      .collection("Tourisms")
+      .doc(id)
+      .update({ status: "accepted", acceptedAt: date, disAcceptedAt: null });
+      Swal.fire(
+        'Accepted',
+        'Wisata Telah di Setujui',
+        'success'
+      )
+  } else {
+    await firestore
+      .collection("Tourisms")
+      .doc(id)
+      .update({
+        status: "not accepted",
+        disAcceptedAt: date,
+        acceptedAt: date,
+      });
+      Swal.fire(
+        'Not Accepted',
+        'Persetujuan Wisata telah di batalkan',
+        'warning'
+      )
+  }
   // console.log(id);
 }
 
 const DetailsTour = (props) => {
-  const { currentTourism, auth, idT} = props;
-
-  if (!auth.uid) return <Redirect to="/" />;
+  const { currentTourism, auth, idT } = props;
+  if (auth.email !== "cmedi2118@gmail.com") return <Redirect to="/cantIn" />;
 
   if (currentTourism) {
     return (
@@ -122,15 +145,16 @@ const DetailsTour = (props) => {
                     </tbody>
                   </table>
                   <button
-                    onClick={()=> {
+                    onClick={() => {
                       let id = idT;
-                      let field = "idItem";  
-                      let to_status = currentTourism.status == "accepted" ? false : true
+
+                      let to_status =
+                        currentTourism.status === "accepted" ? false : true;
                       // if (id == undefined){
                       //   id = currentTourism.idItem
                       //   field = "id";
                       // }
-                      edit(id, to_status, props.firestore)
+                      edit(id, to_status, props.firestore);
                     }}
                     className={
                       currentTourism.status === "accepted"
@@ -165,7 +189,7 @@ const mapStateToProps = (state, ownProps) => {
   const tourism = Tourisms ? Tourisms[id] : null;
   return {
     currentTourism: tourism,
-    idT:id,
+    idT: id,
     auth: state.firebase.auth,
   };
 };

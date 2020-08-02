@@ -2,7 +2,7 @@ import React from "react";
 import ToursSummary from "./ToursSummary";
 import Loading from "../layouts/Loading";
 
-const TourismList = ({ tourisms }) => {
+const TourismList = ({ tourisms, firestore }) => {
   if (tourisms) {
     return (
       <div className="card">
@@ -41,7 +41,7 @@ const TourismList = ({ tourisms }) => {
                 {tourisms &&
                   tourisms.map((tourism) => {
                     
-                    return <ToursSummary tourism={tourism} key={tourism.id} />;
+                    return <ToursSummary tourism={tourism} key={tourism.id} firestore={firestore} />;
                   })}
               </tbody>
             </table>

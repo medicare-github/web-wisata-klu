@@ -14,17 +14,17 @@ const PanelHeader = () => {
                 </h5>
               </div>
               <div className="ml-md-auto py-2 py-md-0">
-                <Link  className="btn btn-white btn-border btn-round mr-2"
+                <Link  className="btn btn-white btn-border btn-round mr-2 mt-1"
                 to="/createtour"
               >
                   <i className="fas fa-plus-circle"/> Wisata alam
                 </Link>
-                <Link  className="btn btn-white btn-border btn-round mr-2"
+                <Link  className="btn btn-white btn-border btn-round mr-2 mt-1"
                 to="/createCulinary"
               >
                   <i className="fas fa-plus-circle"/> Wisata kuliner
                 </Link>
-                <Link  className="btn btn-white btn-border btn-round mr-2"
+                <Link  className="btn btn-white btn-border btn-round mr-2 mt-1"
                 to="/createCulture"
               >
                   <i className="fas fa-plus-circle"/> Wisata Budaya

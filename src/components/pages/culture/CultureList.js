@@ -4,7 +4,7 @@ import CultureSummary from "./CultureSummary";
 
 
 
-const CultureList = ({ tourisms }) => {
+const CultureList = ({ tourisms, firestore }) => {
 
   return (
     <div className="card">
@@ -12,9 +12,9 @@ const CultureList = ({ tourisms }) => {
         <div className="ml-md-auto">
           <Link
             className="btn btn-white btn-border btn-round mr-2"
-            to="/createtour"
+            to="/createCulture"
           >
-            <i className="fas fa-plus-circle" /> Masukan Budaya Alam Terbaru
+            <i className="fas fa-plus-circle" /> Masukan Wisata Budaya Terbaru
           </Link>
         </div>
         <h4 className="card-title text-center text-white">
@@ -51,7 +51,7 @@ const CultureList = ({ tourisms }) => {
             <tbody>
               {tourisms &&
                 tourisms.map((tourism) => {
-                  return <CultureSummary tourism={tourism} />;
+                  return <CultureSummary tourism={tourism} firestore={firestore} />;
                 })}
              
             </tbody>

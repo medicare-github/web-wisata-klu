@@ -81,7 +81,7 @@ class CreateTours extends Component {
 
   render() {
     const { auth } = this.props;
-    if (!auth.uid) return <Redirect to="/" />;
+    if (auth.email !=="cmedi2118@gmail.com") return <Redirect to='/cantIn' />
 
     return (
       <div className="content">
@@ -98,7 +98,7 @@ class CreateTours extends Component {
                 <i className="flaticon-right-arrow" />
               </li>
               <li className="nav-item">
-                <a href="url">Form masukan data wisata</a>
+                <a href="url">Form masukan data wisata Alam</a>
               </li>
             </ul>
           </div>
@@ -107,7 +107,7 @@ class CreateTours extends Component {
               <div className="card">
                 <div className="card-header bg-primary">
                   <div className="card-title text-white ">
-                    Form masukan data wisata
+                    Form masukan data wisata Alam
                   </div>
                 </div>
                 <div className="card-body">

@@ -14,6 +14,7 @@ import Culture from "./components/pages/culture/Culture";
 import Culinary from "./components/pages/culinary/Culinary";
 import CreateCulinary from "./components/pages/culinary/CreateCulinary";
 import CreateCulture from "./components/pages/culture/CreateCulture";
+import NotIn from "./components/layouts/NotIn";
 const App = (props) => {
   const { auth } = props;
   return (
@@ -21,11 +22,15 @@ const App = (props) => {
       {auth.uid ? (
         <div className="wrapper">
           <div className="main-header">
-            <Header />
+            {auth.email==="cmedi2118@gmail.com" ?
+            <Header /> : ""
+          }
             <Navbar />
           </div>
-
-          <Sidebar />
+          {
+            auth.email==="cmedi2118@gmail.com" ? 
+            <Sidebar /> :""
+          }
           <div className="main-panel">
             <div className="content">
               <div className="content">
@@ -40,6 +45,7 @@ const App = (props) => {
                   <Route path="/natural" component={Natural} />
                   <Route path="/culture" component={Culture} />
                   <Route path="/culinary" component={Culinary} />
+                  <Route path="/cantIn" component={NotIn} />
                   {/* <Route path="/signup" component={SignUp} /> */}
                 </Switch>
               </div>
@@ -49,6 +55,7 @@ const App = (props) => {
       ) : (
         <Switch>
           <Route exact path="/" component={SignIn} />
+          <Route exact="/signIn" component={SignIn} />
           <Route path="/createtour" component={CreateTours} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/detail/:id" component={DetailsTours} />
