@@ -9,7 +9,7 @@ function del(tourism, firestore) {
   console.log(firestore);
   Swal.fire({
     title: "Apakah Anda yakin?",
-    text: "Anda ingin menghapus "+" "+tourism.name,
+    text: "Anda ingin menghapus "+tourism.name,
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -29,11 +29,11 @@ const CulinarySummary = ({ tourism, firestore }) => {
       <td><Link to={"/detail/"+tourism.id}>{tourism.name}</Link></td>
       <td>{tourism.kind}</td>
       <td className="text-left">
-        <span
+      <span
           className={
             tourism.status === "accepted"
-              ? "btn btn-success btn-rounded btn-sm"
-              : "btn btn-danger btn-rounded btn-sm"
+              ? "btn-success btn-xs"
+              : "btn-danger btn-xs"
           }
         >
           {tourism.status}
@@ -51,24 +51,24 @@ const CulinarySummary = ({ tourism, firestore }) => {
           </div>
         </div>
       </td>
-      <td>{tourism.createdAt == null ? 'Updated At : '+moment(tourism.updatedAt.toDate()).calendar() :'Created At : '+moment(tourism.createdAt.toDate()).calendar() }</td>
+      <td>{tourism.createdAt === null ? 'Updated At : '+moment(tourism.updatedAt.toDate()).calendar() :'Created At : '+moment(tourism.createdAt.toDate()).calendar() }</td>
       <td>
         <div className="form-button-action">
-          {tourism.emailUser === "mcareducation@gmail.com" ?
+          {tourism.emailUser === "mcareducation@cmedi2118.com" ?
            (
-            <button className="btn btn disabled btn-sm">
-              disabled
-            </button>
-          ) : (
+            <Link to= {tourism.kind==="natural" ?"/edit2/" + tourism.id :tourism.kind==="culture" ?"/edit1/" + tourism.id:"/edit3/" + tourism.id }>
             <button
-              type="button"
-              data-toggle="tooltip"
-              title
-              className="btn btn-link btn-primary btn-lg"
-              data-original-title="Edit Task"
-            >
-              <i className="fa fa-edit" />
-            </button>
+            type="button"
+            data-toggle="tooltip"
+            className="btn btn-link btn-primary btn-lg"
+            data-original-title="Edit Task"
+          >
+            <i className="fa fa-edit" />
+          </button>
+            </Link>
+          ) : (
+            <button className="btn btn disabled btn-sm">disabled</button>
+
           )}
           <button
             type="button"

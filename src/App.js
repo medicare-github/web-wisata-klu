@@ -15,6 +15,10 @@ import Culinary from "./components/pages/culinary/Culinary";
 import CreateCulinary from "./components/pages/culinary/CreateCulinary";
 import CreateCulture from "./components/pages/culture/CreateCulture";
 import NotIn from "./components/layouts/NotIn";
+import EditTourism from "./components/tourisms/EditTourism";
+import EditTourism2 from "./components/tourisms/EditTourism2";
+import EditCulture from "./components/tourisms/EditCulture";
+import EditCulinary from "./components/tourisms/EditCulinary";
 const App = (props) => {
   const { auth } = props;
   return (
@@ -42,6 +46,10 @@ const App = (props) => {
                   <Route path="/createCulture" component={CreateCulture} />
                   <Route path="/signin" component={SignIn} />
                   <Route path="/detail/:id" component={DetailsTours} />
+                  <Route path="/edit/:id" component={EditTourism} />
+                  <Route path="/edit1/:id" component={EditCulture} />
+                  <Route path="/edit2/:id" component={EditTourism2} />
+                  <Route path="/edit3/:id" component={EditCulinary} />
                   <Route path="/natural" component={Natural} />
                   <Route path="/culture" component={Culture} />
                   <Route path="/culinary" component={Culinary} />
@@ -59,6 +67,8 @@ const App = (props) => {
           <Route path="/createtour" component={CreateTours} />
           <Route path="/dashboard" component={Dashboard} />
           <Route path="/detail/:id" component={DetailsTours} />
+          <Route path="/edit/:id" component={EditTourism} />
+          <Route path="/edit2/:id" component={EditTourism2} />
           <Route path="/signup" component={SignUp} />
         </Switch>
       )}

@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import Swal from "sweetalert2";
 import moment from "moment";
+import Loading from "../layouts/Loading";
 
 async function edit(id, ok, firestore) {
   let date = new Date();
@@ -175,8 +176,8 @@ const DetailsTour = (props) => {
     );
   } else {
     return (
-      <div className="container center">
-        <p>Loading .....</p>
+      <div className="card">
+        <Loading />
       </div>
     );
   }

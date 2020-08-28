@@ -8,7 +8,7 @@ function del(tourism, firestore) {
   console.log(firestore);
   Swal.fire({
     title: "Apakah Anda yakin?",
-    text: "Anda ingin menghapus "+" "+tourism.name,
+    text: "Anda ingin menghapus "+tourism.name,
     icon: "warning",
     showCancelButton: true,
     confirmButtonColor: "#3085d6",
@@ -62,7 +62,8 @@ const ToursSummary = ({ tourism, firestore }) => {
           {tourism.emailUser !== "cmedi2118@gmail.com" ? (
             <button className="btn btn disabled btn-sm">disabled</button>
           ) : (
-            <button
+              <Link to= {tourism.kind==="natural" ?"/edit2/" + tourism.id :tourism.kind==="culture" ?"/edit1/" + tourism.id:"/edit3/" + tourism.id }>
+              <button
               type="button"
               data-toggle="tooltip"
               className="btn btn-link btn-primary btn-lg"
@@ -70,6 +71,7 @@ const ToursSummary = ({ tourism, firestore }) => {
             >
               <i className="fa fa-edit" />
             </button>
+              </Link>
           )}
           <button
             type="button"

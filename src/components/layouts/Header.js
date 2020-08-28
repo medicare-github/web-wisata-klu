@@ -7,7 +7,7 @@ export default class Header extends Component {
         <a href="index.html" className="logo">
           <img
             src="../assets/img/icon1.png"
-            width={100}
+            width={150}
             alt="navbar brand"
             className="navbar-brand"
           />
